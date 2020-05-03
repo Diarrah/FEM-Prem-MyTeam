@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Livvic:500,600,700&display=swap');
+
+html { font-family: 'Livvic', sans-serif; }
+
+@mixin big-h1 {
+    font-size: 100px;
+    line-height: 100px;
+    font-weight: 700;
+}
+
+@mixin small-h1 {
+    font-size: 64px;
+    line-height: 56px;
+    font-weight: 700;
+}
+@mixin h2 {
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: 700;
+}
+
+@mixin h3 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+@mixin medium-font {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+@mixin small-font {
+    font-size: 15px;
+    line-height: 25px;
+    font-weight: 600;
+}
+
+@mixin small-tag {
+    font-size: 15px;
+    line-height: 25px;
+    font-weight: 500;
+    font-style: italic;
+}
