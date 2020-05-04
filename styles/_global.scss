@@ -16,7 +16,11 @@ $dark-green: hsl(186, 100%, 8%);
     &:focus { outline: 0 }
 }
 
-body > * {
-    padding-right: 8vw;
-    padding-left: 8vw;
+body {
+    max-width: 1900px;
+    margin: 0 auto;
+    & > * {
+        padding-right: 8vw;
+        padding-left: 8vw;
+    }
 }
