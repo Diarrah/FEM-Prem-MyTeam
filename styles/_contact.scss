@@ -1,0 +1,115 @@
+main {
+    background-color: $midnight-green;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    overflow-x: hidden;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 90px; bottom: 0; left: -105px; right: 0;
+        background-image: url(/images/bg-pattern-about-2-contact-1.svg);
+        background-repeat: no-repeat;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: -95px;
+        background-image: url(/images/bg-pattern-contact-2.svg);
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+    & > * { z-index: 1 }
+}
+
+.contact {
+    width: 45%;
+    h1 { @include small-h1 }
+    h2 {
+        @include contact-h2;
+        margin: 30px 0;
+    }
+
+    .reason {
+        display: flex;
+        margin-bottom: 20px;
+        h3 { margin: auto 0 }
+        img {
+            margin-right: 30px;
+        }
+    }
+}
+
+.form {
+    width: 45%;
+    &__control {
+        position: relative; 
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border: none;
+        border-bottom: 1px solid $white;
+        &:focus-within { border-bottom: 1px solid $rapture-blue; }
+        input {
+            font-family: inherit;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: $white;
+            width: 100%;
+            background-color: transparent;
+            border: 0;
+        }
+        input::placeholder, label {
+            @include small-font;
+            color: hsla(0, 0%, 100%, 0.6);
+            letter-spacing: normal;
+        }
+        textarea {
+            width: 100%; max-width: 100%;
+            min-height: 80px; max-height: 160px;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: transparent;
+            border: none;
+            font-family: inherit;
+            letter-spacing: 0.75px;
+            color: $white;
+            resize: vertical;
+            &:focus { background-color: $deep-jungle-green; }
+            &::-webkit-resizer { display: none }
+            &::-webkit-scrollbar {
+                width: 10px;
+                &-track {
+                    background-color: #fff;
+                    border-right: 4px solid $midnight-green;
+                    border-left: 4px solid $midnight-green;
+                }
+                &-thumb {
+                    width: 10px;
+                    background-color: $dark-green;
+                    border-radius: 100px;
+                }
+                &-corner { display: none }
+            }
+        }
+        small {
+            position: absolute;
+            bottom: -15px; left: 0;
+            color: $coral;
+            font-size: 10px;
+            font-weight: 700;
+            font-style: italic;
+        }
+    }
+    .btn {
+        background-color: $white;
+        color: $deep-jungle-green;
+        border: 0;
+        &:hover {
+            box-shadow: 2px 4px 0 hsla(186, 100%, 8%, 0.75);
+            transition: 0.15s;
+        }
+        &:active { transform: scale(0.985) }
+    }
+}
