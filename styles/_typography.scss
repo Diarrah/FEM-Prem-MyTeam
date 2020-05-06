@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Livvic:500,600,700&display=swap');
 
-html { font-family: 'Livvic', sans-serif; }
+html { 
+    font-family: 'Livvic', sans-serif;
+    color: $white;
+}
 
 ul {
     list-style: none;
@@ -24,10 +27,18 @@ button { font-family: inherit; }
     line-height: 56px;
     font-weight: 700;
 }
+
 @mixin h2 {
     font-size: 48px;
     line-height: 48px;
     font-weight: 700;
+}
+
+@mixin contact-h2 {
+    font-size: 32px;
+    line-height: 48px;
+    font-weight: 700;
+    color: $coral;
 }
 
 @mixin h3 {
@@ -53,4 +64,10 @@ button { font-family: inherit; }
     line-height: 25px;
     font-weight: 500;
     font-style: italic;
+}
+
+@mixin contact-pg-input {
+    @include small-font;
+    color: hsla(0, 0%, 100%, 0.6);
+    letter-spacing: normal;
 }
