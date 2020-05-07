@@ -68,6 +68,7 @@ button { font-family: inherit; }
 
 @mixin contact-pg-input {
     @include small-font;
-    color: hsla(0, 0%, 100%, 0.6);
+    color: hsl(0, 0%, 100%);
+    opacity: 0.6;
     letter-spacing: normal;
 }
