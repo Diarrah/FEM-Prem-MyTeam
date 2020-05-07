@@ -6,6 +6,7 @@ main {
     overflow-x: hidden;
     padding-top: 100px;
     padding-bottom: 100px;
+    & > * { z-index: 1 }
     &:before {
         content: '';
         position: absolute;
@@ -21,7 +22,6 @@ main {
         background-repeat: no-repeat;
         background-position: bottom right;
     }
-    & > * { z-index: 1 }
 }
 
 .contact {
@@ -44,6 +44,7 @@ main {
 
 .form {
     width: 45%;
+
     &__control {
         position: relative; 
         margin-bottom: 25px;
@@ -52,18 +53,19 @@ main {
         border-bottom: 1px solid $white;
         &:focus-within { border-bottom: 1px solid $rapture-blue; }
         input {
+            background-color: transparent;
+            color: $white;
             font-family: inherit;
             font-weight: 600;
             letter-spacing: 3px;
-            color: $white;
             width: 100%;
-            background-color: transparent;
             border: 0;
+            padding-left: 10px;
+            &::placeholder { @include contact-pg-input }
         }
-        input::placeholder, label {
-            @include small-font;
-            color: hsla(0, 0%, 100%, 0.6);
-            letter-spacing: normal;
+        label { 
+            @include contact-pg-input;
+            padding-left: 10px;
         }
         textarea {
             width: 100%; max-width: 100%;
@@ -95,11 +97,13 @@ main {
         }
         small {
             position: absolute;
-            bottom: -15px; left: 0;
+            bottom: -16px; left: 10px;
             color: $coral;
             font-size: 10px;
-            font-weight: 700;
+            font-weight: 600;
             font-style: italic;
+            letter-spacing: 1px;
+            display: none;
         }
     }
     .btn {
@@ -112,4 +116,13 @@ main {
         }
         &:active { transform: scale(0.985) }
     }
+}
+
+// For invalid form inputs
+.invalid {
+    border-color: $coral;
+    small { display: block; }
+    margin-bottom: 30px;
+    input::placeholder, label { color: $coral }
+    &:focus-within { border-color: $coral; }
 }
