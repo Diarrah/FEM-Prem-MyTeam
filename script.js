@@ -9,13 +9,12 @@ function toggle(){
 };
 
 
-
 //Form Validation
 let form = document.querySelector('.form'),
     formControl = form.querySelectorAll('div:not(.message):not(.email)'),
     email = form.querySelector('.email'),
     textarea = form.querySelector('.message');
-    
+
 form.addEventListener('submit', checkInputs);
 
 function checkInputs(e) {
@@ -48,7 +47,7 @@ function checkInputs(e) {
 function validateEmail(email) {
     let validEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return validEmail.test(String(email).toLowerCase());
-}
+} 
 
 /* Explanation for form validation:
 
@@ -62,3 +61,11 @@ function validateEmail(email) {
     Textarea has 4 children: <label>, <br>, <textarea>(.children[2]), & <small>.
     
 */
+
+textarea.addEventListener('input', function() { // Keep bgc when there's any text in textarea
+    if (this.children[2].value !== '') {
+        this.children[2].style.backgroundColor = 'hsl(186, 100%, 14%)' // $deep-jungle-green
+    } else {
+        this.children[2].style.backgroundColor = 'inherit'
+    }
+})
