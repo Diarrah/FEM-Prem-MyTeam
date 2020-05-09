@@ -22,5 +22,11 @@ body {
     & > * {
         padding-right: 8vw;
         padding-left: 8vw;
+        overflow-x: hidden;
     }
+}
+
+@mixin flex-btwn() {
+    display: flex;
+    justify-content: space-between;;
 }

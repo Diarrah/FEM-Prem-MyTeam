@@ -1,20 +1,17 @@
 .about {
+    @include flex-btwn();
     background-color: $midnight-green;
-    display: flex;
-    justify-content: space-between;
     position: relative;
-    overflow-x: hidden;
     padding-top: 80px;
     padding-bottom: 100px;
     h1 {
         @include small-h1;
     }
+    
     &__main {
         @include medium-font;
         max-width: 60%;
-        hr {
-            border-color: $coral;
-        }
+        hr { border-color: $coral }
     }
 
     &:after {
@@ -32,7 +29,6 @@
     position: relative;
     padding-top: 130px;
     padding-bottom: 130px;
-    overflow-x: hidden;
     h2 {
         @include h2;
         text-align: center;
@@ -58,7 +54,7 @@
                 border: 2px solid hsl(179, 100%, 88.4%);
                 border-radius: 50%;
             }
-            small { @include small-tag }
+            small { @include small-italic }
             p { 
                 display: none;
                 max-width: 250px;
@@ -73,7 +69,7 @@
                 a i {
                     font-size: 20px;
                     margin: 29px 10px 0;
-                    &:hover { color: $coral }
+                    &:hover { color: $coral; }
                 }
             }
         }
@@ -152,9 +148,9 @@
 .directors .director.turnCard {
     background-color: $dark-green;
     .director-pic { display: none }
+    .director__social { display: block }
     small { display: none }
     p { display: block }
-    .director__social { display: block }
 }
 
 .btn-turn img.turnBtn {
