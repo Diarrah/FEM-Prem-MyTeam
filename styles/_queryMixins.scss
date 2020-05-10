@@ -1,0 +1,20 @@
+$screen-phones: 580px;
+$screen-tablets: 1000px;
+
+@mixin cellphone-breakpoint {
+    @media (max-width: #{$screen-phones}) {
+        @content;
+    }
+ }
+
+ @mixin tablet-breakpoint {
+    @media (max-width: #{$screen-tablets}) {
+        @content;
+    }
+ }
+
+ @mixin rwd($screen) {
+    @media (max-width: $screen+'px') {
+        @content;
+    }
+ }
