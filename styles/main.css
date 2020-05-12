@@ -618,9 +618,9 @@ h4, .btn {
 }
 
 .build__manage hr {
-  position: relative;
+  position: absolute;
   border-color: #f67e7e;
-  top: -50px;
+  top: 100px;
 }
 
 .build__manage h2 {
@@ -683,6 +683,9 @@ h4, .btn {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .build__manage hr {
+    top: 70px;
   }
   .build__manage h2 {
     margin-bottom: 70px;

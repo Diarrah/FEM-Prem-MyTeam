@@ -67,9 +67,9 @@
     padding-top: 150px;
     padding-bottom: 150px;
     hr { 
-        position: relative;
+        position: absolute;
         border-color: $coral;
-        top: -50px;
+        top: 100px;
     }
     h2 { flex: 0 0 40% }
 
@@ -101,6 +101,7 @@
         padding-top: 120px;
         padding-bottom: 100px;
         flex-direction: column;
+        hr { top: 70px }
         h2 { 
             margin-bottom: 70px;
             width: 80%;
