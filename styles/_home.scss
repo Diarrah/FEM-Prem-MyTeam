@@ -7,7 +7,7 @@
     h1 {
         @include big-h1;
         flex: 0 0 50%;
-        align-self: flex-end;;
+        align-self: flex-end;
         position: relative;
         align-self: center;
         left: 20px;
@@ -39,6 +39,7 @@
     }
 
     @include tablet-breakpoint {
+        padding-top: 40px;
         flex-direction: column;
         text-align: center;
         hr, &::before { display: none }
@@ -51,7 +52,7 @@
         
         h1 { 
             left: 0px;
-            margin: 0 auto 50px;
+            margin: 0 auto 45px;
         }
     }
 
