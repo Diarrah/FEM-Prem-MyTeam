@@ -2,19 +2,20 @@ main {
     @include flex-btwn();
     background-color: $midnight-green;
     position: relative;
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 100px;
     & > * { z-index: 1 }
 
-    &:before {
+    &::before {
         content: '';
         position: absolute;
-        top: 90px; bottom: 0; left: -105px; right: 0;
+        top: 40px; bottom: 0; left: -115px; right: 0;
         background-image: url(/images/bg-pattern-about-2-contact-1.svg);
         background-repeat: no-repeat;
+        @include cellphone-breakpoint { display: none }
     }
     
-    &:after {
+    &::after {
         content: '';
         position: absolute;
         top: 0; bottom: 0; left: 0; right: -95px;
@@ -22,11 +23,31 @@ main {
         background-repeat: no-repeat;
         background-position: bottom right;
     }
+
+    @include tablet-breakpoint {
+        flex-direction: column;
+
+        .contact {
+            h1, h2 { text-align: center }
+            h2 { margin-bottom: 50px }
+        }
+        .form { 
+            max-width: 600px; width: 100%;
+            margin-top: 50px;
+        }
+    }
+
+    @include cellphone-breakpoint {
+        h3 { font-weight: 600 }
+        &::after {
+            bottom: -100px;
+        }
+    }
 }
 
 .contact {
-    width: 45%;
-    h1 { @include small-h1 }
+    flex: 0 0 45%; 
+    margin-left: 20px;
     h2 {
         @include contact-h2;
         margin: 30px 0;
@@ -36,15 +57,12 @@ main {
         display: flex;
         margin-bottom: 20px;
         h3 { margin: auto 0 }
-        img {
-            margin-right: 30px;
-        }
+        img { margin-right: 30px }
     }
 }
 
 .form {
-    width: 45%;
-
+    flex: 0 0 45%;
     &__control {
         position: relative; 
         margin-bottom: 25px;
@@ -57,14 +75,15 @@ main {
             color: $white;
             font-family: inherit;
             font-weight: 600;
+            font-size: 100%;
             letter-spacing: 3px;
             width: 100%;
             border: 0;
             padding-left: 10px;
-            &::placeholder { @include contact-pg-input }
+            &::placeholder { @include contact-pg-input() }
         }
         label { 
-            @include contact-pg-input;
+            @include contact-pg-input();
             padding-left: 10px;
         }
         textarea {
@@ -75,7 +94,7 @@ main {
             background-color: transparent;
             border: none;
             font-family: inherit;
-            letter-spacing: 0.75px;
+            letter-spacing: 1px;
             color: $white;
             resize: vertical;
             &:focus { background-color: $deep-jungle-green !important }
@@ -104,6 +123,12 @@ main {
             letter-spacing: 1px;
             display: none;
         }
+
+        @include cellphone-breakpoint {
+            input, input::placeholder, label {
+                font-weight: 500;
+            }
+        }
     }
 
     .btn {
@@ -114,15 +139,14 @@ main {
             box-shadow: 2px 4px 0 hsla(186, 100%, 8%, 0.75);
             transition: 0.15s;
         }
-        &:active { transform: scale(0.985) }
     }
 }
 
 // For invalid form inputs
 .invalid {
     border-color: $coral;
-    small { display: block; }
+    small { display: block }
     margin-bottom: 30px;
     input::placeholder, label { color: $coral }
-    &:focus-within { border-color: $coral; }
+    &:focus-within { border-color: $coral }
 }

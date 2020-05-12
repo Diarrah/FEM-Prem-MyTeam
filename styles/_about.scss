@@ -4,16 +4,17 @@
     position: relative;
     padding-top: 80px;
     padding-bottom: 100px;
-    
     &__main {
-        flex: 0 0 65%;
+        flex: 0 0 65%; 
+        position: relative;
+        left: -50px;
         hr { 
             border-color: $coral;
             margin-bottom: 40px;
         }
     }
 
-    &:after {
+    &::after {
         content: '';
         position: absolute;
         top: 0; bottom: 0; left: 0; right: -100px;
@@ -21,17 +22,34 @@
         background-repeat: no-repeat;
         background-position: bottom right;
     }
+
+    @include tablet-breakpoint {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 20px;
+        hr { display: none }
+        h1 { margin-bottom: 50px }
+        &__main { 
+            left: 0;
+            width: 75%; 
+            margin: 0 auto;
+        }
+    }
+
+    @include cellphone-breakpoint {
+        padding-top: 45px;
+        h1 { margin-bottom: 30px }
+        &::after { bottom: -100px }
+    }
 }
 
 .directors__section {
     background-color: $deep-jungle-green;
     position: relative;
     padding-top: 130px;
-    padding-bottom: 130px;
-    h2 {
-        text-align: center;
-        margin-bottom: 50px;
-    }
+    padding-bottom: 150px;
+    h2 { margin-bottom: 50px }
+    & > * { text-align: center }
 
     .directors {
         display: grid;
@@ -40,13 +58,11 @@
 
         .director {
             background-color: $sacramento-state-green;
-            text-align: center;
             padding: 25px 15px 0;
             height: 260px; width: 100%;
             h3 { 
                 color: $rapture-blue;
                 margin-top: 15px;
-                height: 15%;
             }
             &-pic {
                 height: 96px; width: 96px;
@@ -74,13 +90,34 @@
         background-repeat: no-repeat;
     }
 
-    &:after {
+    &::after {
         content: '';
         position: absolute;
         top: 0; bottom: 0; left: 0; right: 0;
         background-image: url(/images/bg-pattern-home-4-about-3.svg);
         background-repeat: no-repeat;
         background-position: bottom right;
+    }
+
+    @include tablet-breakpoint {
+        padding-top: 80px;
+        .directors {
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: 20px;
+        }
+    }
+
+    @include cellphone-breakpoint {
+        padding-bottom: 80px;
+        .directors {
+            display: flex;
+            flex-direction: column;
+            .director {
+                max-width: 400px;
+                margin: 0 auto 60px;
+            }
+        }
+        &:before { top: -100px }
     }
 }
 
@@ -102,16 +139,37 @@
         img {
             margin: 0 auto;
             max-width: 100%;
-            &:nth-of-type(5) { max-height: 55px }
+            &:nth-of-type(5) { max-height: 55px }  
         }
     }
 
-    &:after {
+    &::after {
         content: '';
         position: absolute;
         top: 0; bottom: 0; left: 0; right: 0;
         background-image: url(/images/bg-pattern-about-4.svg);
         background-repeat: no-repeat;
+    }
+
+    @include tablet-breakpoint {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        &::after { top: -100px }
+    } 
+
+    @include cellphone-breakpoint {
+        padding-top: 75px;
+        padding-bottom: 75px;
+        .clientele {
+            display: flex;
+            flex-direction: column;
+            img {
+                margin: 30px auto;
+                max-width: 50%;
+                &:nth-of-type(5) { max-height: 80px }
+            }
+        }
+        &::after { left: -100px }
     }
 }
 
@@ -123,14 +181,21 @@
     border: none;
     display: block;
     margin: auto;
-    transform: translateY(31px);
+    transform: translateY(38px);
     cursor: pointer;
+    &.turnBtn { transform: translateY(22.5px) }
+    
     img {
         padding: 20px;
         border-radius: 50%;
         background-color: $coral;
         transition: transform .2s ease-in-out;
-        &:hover { background-color: $rapture-blue; }
+        &:hover { background-color: $rapture-blue }
+        &.turnBtn {
+            background-color: $rapture-blue;
+            transform: rotateZ(45deg);
+            &:hover { background-color: $coral }
+        }
     }
 }
 
@@ -158,12 +223,4 @@
         max-width: 90%; 
         margin: 0 auto;
     }
-}
-
-.btn-turn.turnBtn { transform: translateY(15.5px) }
-
-.btn-turn img.turnBtn {
-    background-color: $rapture-blue;
-    transform: rotateZ(45deg);
-    &:hover { background-color: $coral; }
 }

@@ -22,11 +22,16 @@ body {
     & > * {
         padding-right: 8vw;
         padding-left: 8vw;
-        overflow-x: hidden;
+        overflow: hidden;
+
+        @include tablet-breakpoint {
+            padding-right: 5vw;
+            padding-left: 5vw;
+        }
     }
 }
 
 @mixin flex-btwn() {
     display: flex;
-    justify-content: space-between;;
+    justify-content: space-between;
 }
