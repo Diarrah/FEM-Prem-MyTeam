@@ -6,6 +6,8 @@ html {
     color: $white;
 }
 
+hr { width: 50px }
+
 button { font-family: inherit }
 
 ul { list-style: none }
@@ -17,25 +19,38 @@ a  {
 
 @mixin big-h1 {
     font-size: 6.25em;
-    line-height: 1em;
+    line-height: 1;
     font-weight: 700;
+    @include rwd(1279) { font-size: 7.7vw }
+    @include tablet-breakpoint { font-size: 5.5em }
+    @include rwd(650) { font-size: 16vw }
 } 
 
 @mixin h1 {
     font-size: 4rem;
     line-height: 0.875em;
     font-weight: 700;
+    @include cellphone-breakpoint {
+        font-size: 3.5em;
+        font-weight: 600;
+    }
 }
 
 @mixin h2 {
     font-size: 3em;
-    line-height: 1em;
+    line-height: 1;
     font-weight: 700;
+    @include cellphone-breakpoint {
+        font-size: 2.5em;
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+    }
 }
 
 @mixin contact-h2 {
     font-size: 2em;
-    line-height: 1.5em;
+    line-height: 1.5;
     font-weight: 700;
     color: $coral;
 }
@@ -50,6 +65,9 @@ a  {
     font-size: 1.125em;
     line-height: 1.55em;
     font-weight: 600;
+    @include cellphone-breakpoint {
+        font-weight: 500;
+    }
 }
 
 @mixin small-bold {
