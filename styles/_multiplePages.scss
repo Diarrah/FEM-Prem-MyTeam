@@ -1,0 +1,229 @@
+/* This page is for components which all the pages have (overlay, navbar, buttons, cta, footer)
+    I don't know React yet */
+
+.overlay {
+    position: absolute;
+    z-index: -1;
+    height: 100vh; width: 100%;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    &.active {
+        z-index: 2;
+        opacity: 0.8;
+    }
+}
+
+
+.navbar { 
+    display: flex;
+    align-items: center;
+    background-color: $midnight-green;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    @include cellphone-breakpoint {
+        padding-bottom: 15px;
+    }
+    &__links {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        li {
+            &:nth-of-type(1) { margin: 0 35px 0 50px }
+            &:hover { color: $coral }
+            &:nth-of-type(3) {
+                margin-left: auto;
+                a { 
+                    @include medium-font();
+                    border: 1px solid white;
+                    border-radius: 50px;
+                    padding: 11px 25px 14px;
+                    &:hover {
+                        color: $dark-green;
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    &.active {
+        .navbar__links { transform: translateX(0) }
+        
+    }
+    &__mobile {
+        position: relative;
+        z-index: 3;
+        display: none;
+        .close { 
+            display: none;
+            padding: 10px;
+            border-radius: 50%;
+            &:hover { background-color: hsla(0, 0%, 100%, 0.3) }
+        }
+        &.active {
+            .hamburger { display: none }
+            .close { display: block }
+        }
+    }
+
+    @include cellphone-breakpoint { // Cellphone break for entire navbar
+        @include flex-btwn();
+        &__mobile { display: block }
+
+        .navbar__links {
+            flex-direction: column;
+            position: fixed;
+            align-items: start;
+            background-color: $police-blue;
+            top: 0; right: 0;
+            height: 100vh; width: 60vw;
+            padding: 150px 0 0 50px;
+            z-index: 3; 
+            transform: translateX(65vw);
+            transition: transform .5s ease-in-out;
+            li { 
+                margin: 0 0 50px 0;
+                z-index: 4;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0; bottom: 0; left: 0; right: -100px;
+                background-image: url(/images/bg-pattern-about-1-mobile-nav-1.svg);
+                background-repeat: no-repeat;
+                background-position: bottom right;
+            }
+        }
+    }
+}
+
+.cta { 
+    @include flex-btwn();
+    align-items: center;
+    position: relative;
+    background-color: $coral;
+    padding: 75px 15vw;
+    h2 { color: $sacramento-state-green }
+
+    .btn {
+        background-color: transparent;
+        border: 2px solid $sacramento-state-green;
+        min-width: 142px;
+        &:hover {
+            background-color: $sacramento-state-green;
+            color: $white;
+            transition: 0.1s; 
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        background-image: url(/images/bg-pattern-home-6-about-5.svg);
+        background-repeat: no-repeat;
+        background-position: 0% 100%;
+    }
+
+    @include tablet-breakpoint {
+        &::before { bottom: -20px }
+    }
+
+    @include cellphone-breakpoint {
+        flex-direction: column;
+        text-align: center;
+        h2 { 
+            margin-bottom: 30px;
+        }
+        .btn { font-weight: 600 }
+    }
+}
+
+
+
+.footer {
+    background-color: $dark-green;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    &__links {
+        grid-area: 2 / 1 / 3 / 2;
+        @include flex-btwn();
+        width: 140px;
+        align-self: flex-end;
+        li:hover { color: $coral }
+    }
+
+    .social__links {
+        @include flex-btwn();
+        grid-area: 1 / 4 / 2 / 5;
+        width: 100px;
+        margin-left: auto;
+        i {
+            font-size: 24px;
+            &:hover { color: $coral }
+        }
+    }
+
+    small { opacity: 80% }
+    small:not(.copyright) {
+        grid-area: 1 / 2 / 3 / 3;
+        line-height: 1.75;
+    }
+
+    .copyright {
+        grid-area: 2 / 4 / 3 / 5;
+        margin-left: auto;
+        text-align: right;
+        align-self: flex-end;
+    }
+
+    @include tablet-breakpoint {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+
+        .social__links {
+            grid-area: 3 / 1 / 4 / 2;
+            margin: auto 0 0 0;
+            align-self: flex-end;
+            width: 140px;
+        }
+
+        small:not(.copyright) {
+            grid-area: 1 / 2 / 3 / 3;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .copyright { grid-area: 3 / 2 / 4 / 3 }
+    }
+
+    @include cellphone-breakpoint {
+        display: flex;
+        flex-direction: column;
+        & > *, .social__links { margin: 0 auto 20px }
+
+        small:not(.copyright) { 
+            text-align: center;
+            padding: 10px 0;
+        }
+        .copyright { margin-bottom: 0 }
+    }
+}
+
+
+// Button for CTA & Form:
+.btn {
+    color: $sacramento-state-green;
+    border-radius: 24px;
+    height: 48px; 
+    padding: 0px 25px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    &:active { transform: scale(0.985) }
+}
