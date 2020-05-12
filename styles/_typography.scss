@@ -23,7 +23,7 @@ a  {
     font-weight: 700;
     @include rwd(1279) { font-size: 7.7vw }
     @include tablet-breakpoint { font-size: 5.5em }
-    @include rwd(650) { font-size: 16vw }
+    @include rwd(650) { font-size: 15.5vw }
 } 
 
 @mixin h1 {
