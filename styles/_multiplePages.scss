@@ -2,15 +2,17 @@
     I don't know React yet */
 
 .overlay {
-    position: absolute;
-    z-index: -1;
-    height: 100vh; width: 100%;
-    background-color: black;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    &.active {
-        z-index: 2;
-        opacity: 0.8;
+    @include cellphone-breakpoint {
+        position: absolute;
+        z-index: -1;
+        height: 100vh; width: 100%;
+        background-color: black;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        &.active {
+            z-index: 2;
+            opacity: 0.8;
+        }
     }
 }
 
