@@ -1,12 +1,32 @@
+// Mobile Nav Toggle
+let menu = document.querySelector('.navbar__mobile'),
+    overlay = document.querySelector('.overlay'),
+    { body } = document;
+
+menu.addEventListener('click', function(e) {
+    this.classList.toggle('active')
+    this.parentElement.classList.toggle('active')
+    overlay.classList.toggle('active')
+
+    if (this.classList.contains('active')) {
+        body.style.overflow = 'hidden'
+    } else {
+        body.style.overflow = 'visible'
+    } 
+})
+
+
 // About Me Page Flip:
 let crossButtons = document.querySelectorAll('.btn-turn');
 
 crossButtons.forEach(button => button.addEventListener('click', toggle));
 
 function toggle(){
-    this.parentElement.classList.toggle('turnCard');
-    this.children[0].classList.toggle('turnBtn');  
+    this.classList.toggle('turnBtn');
+    this.children[0].classList.toggle('turnBtn');
+    this.parentElement.classList.toggle('turnCard');  
 };
+
 
 
 //Form Validation
@@ -49,8 +69,15 @@ function validateEmail(email) {
     return validEmail.test(String(email).toLowerCase());
 } 
 
-/* Explanation for form validation:
+textarea.addEventListener('input', function() { // Keep bgc when there's any text in textarea
+    if (this.children[2].value !== '') {
+        this.children[2].style.backgroundColor = 'hsl(186, 100%, 14%)' // $deep-jungle-green
+    } else {
+        this.children[2].style.backgroundColor = 'inherit'
+    }
+})
 
+/* Explanation for form validation:
     All divs (name, email, company, title, message) are all parent elements with a class name of 'form__control'.
     The first 4 (just not textarea) have 2 children elements: an input(.children[0]) & a small tag/error msg(.children[1]).
 
@@ -59,13 +86,4 @@ function validateEmail(email) {
 
     Had to make seperate varaible for textarea because it does not have an input tag.
     Textarea has 4 children: <label>, <br>, <textarea>(.children[2]), & <small>.
-    
 */
-
-textarea.addEventListener('input', function() { // Keep bgc when there's any text in textarea
-    if (this.children[2].value !== '') {
-        this.children[2].style.backgroundColor = 'hsl(186, 100%, 14%)' // $deep-jungle-green
-    } else {
-        this.children[2].style.backgroundColor = 'inherit'
-    }
-})
