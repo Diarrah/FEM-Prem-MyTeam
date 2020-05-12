@@ -10,19 +10,24 @@
 </head>
 
 <body>
+  <div class="overlay"></div>
   <nav class="navbar">
+    <img src="/images/logo.svg" class="logo" alt="Company logo">
     <ul class="navbar__links">
-      <img src="/images/logo.svg" class="logo" alt="Company logo">
       <li>
         <a href="index.html">home</a>
       </li>
       <li>
         <a href="about.html">about</a>
       </li>
+      <li>
+        <a href="contact.html">contact us</a>
+      </li>
     </ul>
-    <form action="contact.html">
-      <button type="submit" class="btn">contact us</button>
-    </form>
+    <a href="#" class="navbar__mobile">
+      <img src="/images/icon-hamburger.svg" class="hamburger" alt="Hamburger icon">
+      <img src="/images/icon-close.svg" class="close" alt="X shape">
+    </a>
   </nav>
 
   <main>
@@ -73,39 +78,33 @@
   </main>
 
   <footer class="footer">
-    <div class="col-1">
-      <img src="/images/logo.svg" alt="Company logo">
-      <ul class="footer__links">
-        <li>
-          <a href="index.html">home</a>
-        </li>
-        <li>
-          <a href="about.html">about</a>
-        </li>
-      </ul>
+    <img src="/images/logo.svg" class="logo" alt="Company logo">
+    <ul class="footer__links">
+      <li>
+        <a href="index.html">home</a>
+      </li>
+      <li>
+        <a href="about.html">about</a>
+      </li>
+    </ul>
+    <small>
+      987 Hillcrest Lane <br>
+      Irvine, CA <br>
+      California 92714 <br>
+      Call Us : 949-833-7432
+    </small>
+    <div class="social__links">
+      <a href="#" aria-label="Follow us on Facebook">
+        <i class="fab fa-facebook-square"></i>
+      </a>
+      <a href="#" aria-label="View us on Pinterest">
+        <i class="fab fa-pinterest"></i>
+      </a>
+      <a href="#" aria-label="Follow us on Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
     </div>
-    <div class="col-2">
-      <small>
-        987  Hillcrest Lane <br>
-        Irvine, CA <br>
-        California 92714 <br>
-        Call Us : 949-833-7432
-      </small>
-    </div>
-    <div class="col-3">
-      <div class="social__links">
-        <a href="#" aria-label="Follow us on Facebook">
-          <i class="fab fa-facebook-square"></i>
-        </a>
-        <a href="#" aria-label="View us on Pinterest">
-          <i class="fab fa-pinterest"></i>
-        </a>
-        <a href="#" aria-label="Follow us on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </div>  
-      <small class="copyright">Copyright 2020. All Rights Reserved</small>
-    </div>
+    <small class="copyright">Copyright 2020. All Rights Reserved</small>
   </footer>
 
   <script src="script.js"></script>
