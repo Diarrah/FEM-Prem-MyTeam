@@ -100,20 +100,21 @@ h4, .btn {
 
 /* This page is for components which all the pages have (overlay, navbar, buttons, cta, footer)
     I don't know React yet */
-.overlay {
-  position: absolute;
-  z-index: -1;
-  height: 100vh;
-  width: 100%;
-  background-color: black;
-  opacity: 0;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.overlay.active {
-  z-index: 2;
-  opacity: 0.8;
+@media (max-width: 580px) {
+  .overlay {
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .overlay.active {
+    z-index: 2;
+    opacity: 0.8;
+  }
 }
 
 .navbar {
@@ -523,7 +524,7 @@ h4, .btn {
 
 @media (max-width: 650px) {
   .header h1 {
-    font-size: 16vw;
+    font-size: 15.5vw;
   }
 }
 
@@ -576,6 +577,7 @@ h4, .btn {
 
 @media (max-width: 1000px) {
   .header {
+    padding-top: 40px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -594,7 +596,7 @@ h4, .btn {
   }
   .header h1 {
     left: 0px;
-    margin: 0 auto 50px;
+    margin: 0 auto 45px;
   }
 }
 
@@ -871,7 +873,7 @@ h4, .btn {
         -ms-flex-direction: column;
             flex-direction: column;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 45px;
   }
   .about hr {
     display: none;
