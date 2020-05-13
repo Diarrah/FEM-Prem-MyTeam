@@ -220,6 +220,7 @@
 
 // Button for CTA & Form:
 .btn {
+    @include medium-font();
     color: $sacramento-state-green;
     border-radius: 24px;
     height: 48px; 
