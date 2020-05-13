@@ -51,7 +51,6 @@ a {
   text-decoration: none;
 }
 
-/* ------------------------------------------------ */
 h1 {
   font-size: 4rem;
   line-height: 0.875em;
@@ -86,14 +85,14 @@ h3 {
   font-weight: 700;
 }
 
-h4, .btn {
+h4 {
   font-size: 1.125em;
   line-height: 1.55em;
   font-weight: 600;
 }
 
 @media (max-width: 580px) {
-  h4, .btn {
+  h4 {
     font-weight: 500;
   }
 }
@@ -467,6 +466,9 @@ h4, .btn {
 }
 
 .btn {
+  font-size: 1.125em;
+  line-height: 1.55em;
+  font-weight: 600;
   color: #012f34;
   border-radius: 24px;
   height: 48px;
@@ -474,6 +476,12 @@ h4, .btn {
   position: relative;
   z-index: 1;
   cursor: pointer;
+}
+
+@media (max-width: 580px) {
+  .btn {
+    font-weight: 500;
+  }
 }
 
 .btn:active {
@@ -501,12 +509,7 @@ h4, .btn {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
   position: relative;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
   left: 20px;
 }
 
@@ -965,6 +968,93 @@ h4, .btn {
   color: #f67e7e;
 }
 
+.directors__section .directors .director .btn-turn {
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+  border: none;
+  display: block;
+  margin: auto;
+  -webkit-transform: translateY(38px);
+          transform: translateY(38px);
+  cursor: pointer;
+}
+
+.directors__section .directors .director .btn-turn.turnBtn {
+  -webkit-transform: translateY(22.5px);
+          transform: translateY(22.5px);
+}
+
+.directors__section .directors .director .btn-turn img {
+  padding: 20px;
+  border-radius: 50%;
+  background-color: #f67e7e;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+}
+
+.directors__section .directors .director .btn-turn img:hover {
+  background-color: #79c8c7;
+}
+
+.directors__section .directors .director .btn-turn img.turnBtn {
+  background-color: #79c8c7;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+.directors__section .directors .director .btn-turn img.turnBtn:hover {
+  background-color: #f67e7e;
+}
+
+.directors__section .directors .director.turnCard {
+  background-color: #002529;
+}
+
+.directors__section .directors .director.turnCard h3 {
+  margin-top: 7px;
+}
+
+.directors__section .directors .director.turnCard .director-pic {
+  display: none;
+}
+
+.directors__section .directors .director.turnCard small {
+  display: none;
+}
+
+.directors__section .directors .director.turnCard p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 48%;
+  line-height: 1.5;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.directors__section .directors .director.turnCard .director__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  position: relative;
+  margin: 0 auto;
+  z-index: 1;
+  height: 15%;
+  width: 60px;
+}
+
 .directors__section::before {
   content: '';
   position: absolute;
@@ -1098,93 +1188,6 @@ h4, .btn {
   .clients::after {
     left: -100px;
   }
-}
-
-.btn-turn {
-  background-color: transparent;
-  position: relative;
-  z-index: 2;
-  border: none;
-  display: block;
-  margin: auto;
-  -webkit-transform: translateY(38px);
-          transform: translateY(38px);
-  cursor: pointer;
-}
-
-.btn-turn.turnBtn {
-  -webkit-transform: translateY(22.5px);
-          transform: translateY(22.5px);
-}
-
-.btn-turn img {
-  padding: 20px;
-  border-radius: 50%;
-  background-color: #f67e7e;
-  -webkit-transition: -webkit-transform .2s ease-in-out;
-  transition: -webkit-transform .2s ease-in-out;
-  transition: transform .2s ease-in-out;
-  transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
-}
-
-.btn-turn img:hover {
-  background-color: #79c8c7;
-}
-
-.btn-turn img.turnBtn {
-  background-color: #79c8c7;
-  -webkit-transform: rotateZ(45deg);
-          transform: rotateZ(45deg);
-}
-
-.btn-turn img.turnBtn:hover {
-  background-color: #f67e7e;
-}
-
-.directors .director.turnCard {
-  background-color: #002529;
-}
-
-.directors .director.turnCard .director-pic {
-  display: none;
-}
-
-.directors .director.turnCard .director__social {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  position: relative;
-  margin: 0 auto;
-  z-index: 1;
-  height: 15%;
-  width: 60px;
-}
-
-.directors .director.turnCard h3 {
-  margin-top: 7px;
-}
-
-.directors .director.turnCard small {
-  display: none;
-}
-
-.directors .director.turnCard p {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 48%;
-  line-height: 1.5;
-  max-width: 90%;
-  margin: 0 auto;
 }
 
 main {
@@ -1419,6 +1422,35 @@ main::after {
   display: none;
 }
 
+.form__control.invalid {
+  margin-bottom: 30px;
+  border-color: #f67e7e;
+}
+
+.form__control.invalid:focus-within {
+  border-color: #f67e7e;
+}
+
+.form__control.invalid input::-webkit-input-placeholder, .form__control.invalid label {
+  color: #f67e7e;
+}
+
+.form__control.invalid input:-ms-input-placeholder, .form__control.invalid label {
+  color: #f67e7e;
+}
+
+.form__control.invalid input::-ms-input-placeholder, .form__control.invalid label {
+  color: #f67e7e;
+}
+
+.form__control.invalid input::placeholder, .form__control.invalid label {
+  color: #f67e7e;
+}
+
+.form__control.invalid small {
+  display: block;
+}
+
 @media (max-width: 580px) {
   .form__control input, .form__control input::-webkit-input-placeholder, .form__control label {
     font-weight: 500;
@@ -1445,34 +1477,5 @@ main::after {
           box-shadow: 2px 4px 0 rgba(0, 37, 41, 0.75);
   -webkit-transition: 0.15s;
   transition: 0.15s;
-}
-
-.invalid {
-  border-color: #f67e7e;
-  margin-bottom: 30px;
-}
-
-.invalid small {
-  display: block;
-}
-
-.invalid input::-webkit-input-placeholder, .invalid label {
-  color: #f67e7e;
-}
-
-.invalid input:-ms-input-placeholder, .invalid label {
-  color: #f67e7e;
-}
-
-.invalid input::-ms-input-placeholder, .invalid label {
-  color: #f67e7e;
-}
-
-.invalid input::placeholder, .invalid label {
-  color: #f67e7e;
-}
-
-.invalid:focus-within {
-  border-color: #f67e7e;
 }
 /*# sourceMappingURL=main.css.map */
