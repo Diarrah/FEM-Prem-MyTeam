@@ -79,6 +79,53 @@
                     &:hover { color: $coral }
                 }
             }
+
+            .btn-turn {
+                background-color: transparent;
+                position: relative;
+                z-index: 2;
+                border: none;
+                display: block;
+                margin: auto;
+                transform: translateY(38px);
+                cursor: pointer;
+                &.turnBtn { transform: translateY(22.5px) } // Toggle
+                img {
+                    padding: 20px;
+                    border-radius: 50%;
+                    background-color: $coral;
+                    transition: transform .2s ease-in-out;
+                    &:hover { background-color: $rapture-blue }
+                    &.turnBtn {                             // Toggle
+                        background-color: $rapture-blue;
+                        transform: rotateZ(45deg);
+                        &:hover { background-color: $coral }
+                    }
+                }
+            }
+
+            &.turnCard {                                    // Toggle
+                background-color: $dark-green;
+                h3 { margin-top: 7px }
+                .director-pic { display: none }
+                small { display: none }
+                p { 
+                    display: flex;
+                    align-items: center;
+                    height: 48%;
+                    line-height: 1.5;
+                    max-width: 90%; 
+                    margin: 0 auto;
+                }
+                .director__social { 
+                    @include flex-btwn();
+                    align-items: flex-end;
+                    position: relative; 
+                    margin: 0 auto;
+                    z-index: 1;
+                    height: 15%; width: 60px;
+                }
+            }
         }
     }
 
@@ -170,57 +217,5 @@
             }
         }
         &::after { left: -100px }
-    }
-}
-
-// Buttons:
-.btn-turn {
-    background-color: transparent;
-    position: relative;
-    z-index: 2;
-    border: none;
-    display: block;
-    margin: auto;
-    transform: translateY(38px);
-    cursor: pointer;
-    &.turnBtn { transform: translateY(22.5px) }
-    
-    img {
-        padding: 20px;
-        border-radius: 50%;
-        background-color: $coral;
-        transition: transform .2s ease-in-out;
-        &:hover { background-color: $rapture-blue }
-        &.turnBtn {
-            background-color: $rapture-blue;
-            transform: rotateZ(45deg);
-            &:hover { background-color: $coral }
-        }
-    }
-}
-
-// Turn Card Toggles
-.directors .director.turnCard {
-    background-color: $dark-green;
-    .director-pic { display: none }
-
-    .director__social { 
-        @include flex-btwn();
-        align-items: flex-end;
-        position: relative; 
-        margin: 0 auto;
-        z-index: 1;
-        height: 15%; width: 60px;
-    }
-
-    h3 { margin-top: 7px }
-    small { display: none }
-    p { 
-        display: flex;
-        align-items: center;
-        height: 48%;
-        line-height: 1.5;
-        max-width: 90%; 
-        margin: 0 auto;
     }
 }
