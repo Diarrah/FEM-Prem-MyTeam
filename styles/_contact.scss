@@ -39,9 +39,7 @@ main {
 
     @include cellphone-breakpoint {
         h3 { font-weight: 600 }
-        &::after {
-            bottom: -100px;
-        }
+        &::after { bottom: -100px }
     }
 }
 
@@ -124,6 +122,14 @@ main {
             display: none;
         }
 
+        &.invalid {
+            margin-bottom: 30px;
+            border-color: $coral;
+            &:focus-within { border-color: $coral }
+            input::placeholder, label { color: $coral }
+            small { display: block }
+        }
+
         @include cellphone-breakpoint {
             input, input::placeholder, label {
                 font-weight: 500;
@@ -140,13 +146,4 @@ main {
             transition: 0.15s;
         }
     }
-}
-
-// For invalid form inputs
-.invalid {
-    border-color: $coral;
-    small { display: block }
-    margin-bottom: 30px;
-    input::placeholder, label { color: $coral }
-    &:focus-within { border-color: $coral }
 }
