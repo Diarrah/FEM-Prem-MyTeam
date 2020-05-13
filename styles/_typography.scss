@@ -17,16 +17,7 @@ a  {
     text-decoration: none;
 }
 
-@mixin big-h1 {
-    font-size: 6.25em;
-    line-height: 1;
-    font-weight: 700;
-    @include rwd(1279) { font-size: 7.7vw }
-    @include tablet-breakpoint { font-size: 5.5em }
-    @include rwd(650) { font-size: 15.5vw }
-} 
-
-@mixin h1 {
+h1 {
     font-size: 4rem;
     line-height: 0.875em;
     font-weight: 700;
@@ -36,7 +27,7 @@ a  {
     }
 }
 
-@mixin h2 {
+h2 {
     font-size: 3em;
     line-height: 1;
     font-weight: 700;
@@ -48,6 +39,22 @@ a  {
     }
 }
 
+h3 {
+    font-size: 1.125em;
+    line-height: 1.55em;
+    font-weight: 700;
+}
+
+//Typography Mixins
+@mixin big-h1 {
+    font-size: 6.25em;
+    line-height: 1;
+    font-weight: 700;
+    @include rwd(1279) { font-size: 7.7vw }
+    @include tablet-breakpoint { font-size: 5.5em }
+    @include rwd(650) { font-size: 15.5vw }
+} 
+
 @mixin contact-h2 {
     font-size: 2em;
     line-height: 1.5;
@@ -55,20 +62,16 @@ a  {
     color: $coral;
 }
 
-@mixin h3 {
-    font-size: 1.125em;
-    line-height: 1.55em;
-    font-weight: 700;
-}
-
 @mixin medium-font {
     font-size: 1.125em;
     line-height: 1.55em;
     font-weight: 600;
-    @include cellphone-breakpoint {
+     @include cellphone-breakpoint {
         font-weight: 500;
     }
 }
+
+h4 { @include medium-font() }
 
 @mixin small-bold {
     font-size: 0.9375em;
@@ -89,9 +92,3 @@ a  {
     letter-spacing: normal;
     @include small-bold();
 }
-
-/* ------------------------------------------------ */
-h1 { @include h1() }
-h2 { @include h2() }
-h3 { @include h3() }
-h4, .btn {  @include medium-font() }
