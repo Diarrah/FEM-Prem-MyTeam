@@ -3,7 +3,7 @@ let menu = document.querySelector('.navbar__mobile'),
     overlay = document.querySelector('.overlay'),
     { body } = document;
 
-menu.addEventListener('click', function(e) {
+menu.addEventListener('click', function() {
     this.classList.toggle('active')
     this.parentElement.classList.toggle('active')
     overlay.classList.toggle('active')
@@ -21,7 +21,7 @@ let crossButtons = document.querySelectorAll('.btn-turn');
 
 crossButtons.forEach(button => button.addEventListener('click', toggle));
 
-function toggle(){
+function toggle() {
     this.classList.toggle('turnBtn');
     this.children[0].classList.toggle('turnBtn');
     this.parentElement.classList.toggle('turnCard');  
@@ -31,8 +31,7 @@ function toggle(){
 
 //Form Validation
 let form = document.querySelector('.form'),
-    formControl = form.querySelectorAll('div:not(.message):not(.email)'),
-    email = form.querySelector('.email'),
+    formControl = form.querySelectorAll('div:not(.message)'),
     textarea = form.querySelector('.message');
 
 form.addEventListener('submit', checkInputs);
@@ -43,22 +42,18 @@ function checkInputs(e) {
     formControl.forEach(inputField => { 
         if ((inputField.children[0]).value.trim() === '') {
             inputField.classList.add('invalid')  
+            inputField.children[1].innerText = `This field is required`
+        } else if (!validateEmail(formControl[1].children[0].value.trim())) {
+            inputField.classList.add('invalid')
+            formControl[1].children[1].innerText = `Please enter a valid email`
         } else {
             inputField.classList.remove('invalid')
         }
     }); 
 
-    if (email.children[0].value.trim() === '') {
-        email.classList.add('invalid')
-    } else if (!validateEmail(email.children[0].value.trim())) {
-        email.classList.add('invalid')
-        email.children[1].innerText = `Please enter a valid email`
-     } else {
-         email.classList.remove('invalid')
-     }
-
     if (textarea.children[2].value.trim() === '') {
         textarea.classList.add('invalid');
+        textarea.children[3].innerText = `This field is required`
     } else {
         textarea.classList.remove('invalid')
     }
@@ -81,9 +76,6 @@ textarea.addEventListener('input', function() { // Keep bgc when there's any tex
     All divs (name, email, company, title, message) are all parent elements with a class name of 'form__control'.
     The first 4 (just not textarea) have 2 children elements: an input(.children[0]) & a small tag/error msg(.children[1]).
 
-    Made a seperate variable for the email so that I could put a unique error message in case of invalid email
-    address entry.
-
     Had to make seperate varaible for textarea because it does not have an input tag.
-    Textarea has 4 children: <label>, <br>, <textarea>(.children[2]), & <small>.
+    Textarea has 4 children: <label>, <br>, <textarea>(.children[2]), & <small>(.children[3]).
 */
