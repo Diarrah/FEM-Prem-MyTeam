@@ -7,9 +7,7 @@
     h1 {
         @include big-h1;
         flex: 0 0 50%;
-        align-self: flex-end;
         position: relative;
-        align-self: center;
         left: 20px;
         span { color: $coral }
     }
@@ -191,7 +189,6 @@
             }
         }    
     }
-    
 
     @include cellphone-breakpoint {
         h2 { 
